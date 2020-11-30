@@ -35,9 +35,7 @@ function renderModal(projId) {
     var strHtml = `<h2>${proj.name}</h2>
                     <p class="item-intro text-muted">${proj.title}</p>
                     <img class="img-fluid d-block mx-auto" src="img/portfolio/${proj.id}-full.png" alt="">
-                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis
-                    dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate,
-                    maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                    <p>${getLongDesc(proj.id)}</p>
                     <ul class="list-inline">
                         <li>Date: November 2020</li>
                         <li>Client: Threads</li>
