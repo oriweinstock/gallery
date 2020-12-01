@@ -1,8 +1,5 @@
 'use strict'
 
-console.log('Starting up projects service');
-window.onload = createProjects();
-
 var gProjects;
 
 // CREATE
@@ -89,9 +86,9 @@ function getLongDesc(projId) {
         1: 'MineSweeper is a well known game. I remember playing this on my 386 computer running Windows 3.11 for WorkGroups. I guess everyone in Israel was a part of a workgroup back then :-). In my version I took the liberty to add some new features, such as Multiple lives (bombs could be less harmfull), not one, but TWO type of hints (what is around a cell, and where is it safe to click). If that is not enough - why take a chance to be exploded? Why not play the God of Mines? In my verseion, everyone can decide where to place the mines and put their creativity to the test. Now Let\'s Go & Sweep Some Mines!',
         2: 'La Nostra Libreria is a control panel dedicated to help book-stores owners managing their inventory and online presence. In this project I built a custom table to give easy access to all important features a book-store owner would need. As of now I have a LOI from Amazon and perhpas by the time you read this - my system is already being used by the world\'s #1 book retailer.',
         3: `Who can forget this mega-arcade hit!? If you were alive in the 80's you know what I'm talking about. This PacMan game is based on HTML table(!), believe it or not, and can be played like the original game. Well... almost :-). By the way - Though not as good looking as the original one, it is quite as hard as the arcade one. Enjoy!`,
-        4: 'TEST4',
-        5: 'TEST 5',
-        6: 'EXAM'
+        4: 'Collect those balls. Try not to step on glue. Walk thru secret passages. Follow more instructions. Read one more sentence. Close window :-)',
+        5: 'Touch Nums. How fast can you touch the next number? In this project I used minimal and clean design, utiling calm cyan theme and minimum interference with the game. Try to beat your record and see how addicting is this game...',
+        6: `To Do || !To Do. That is the programmers' question. This fully functional yet simple to do is one of my favorites. You can see the elegant design and functionality and use it for your own task management.`
     };
     return projLongDescs[projId];
 }

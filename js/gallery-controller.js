@@ -1,11 +1,12 @@
 'use strict'
 
-window.onload = onInit();
-
-function onInit() {
+$(document).ready(function () {
+    createProjects();   // from service. for now.
     renderProjects();
     $('.portfolio-link').click(function () { renderModal($(this).data('proj-id')); });
-}
+    $('#portfolioModal').on('hidden.bs.modal', function () { $('.offcanvas-btn').show(); });
+});
+
 function renderProjects() {
     var projects = getProjects();
     var strHtmls = projects.map(function (proj) {
@@ -31,7 +32,7 @@ function renderProjects() {
 function renderModal(projId) {
     var proj = getProjectById(projId);
     var $elModal = $('.modal-body');
-    console.log('elModal$$$', $elModal);
+    
     var strHtml = `<h2>${proj.name}</h2>
                     <p class="item-intro text-muted">${proj.title}</p>
                     <img class="img-fluid d-block mx-auto" src="img/portfolio/${proj.id}-full.png" alt="">
@@ -46,25 +47,15 @@ function renderModal(projId) {
                         Close Project</button>
                     </div>`;
     $elModal.html(strHtml);
+    $('.offcanvas-btn').hide();
 }
 
-/*
-    <div class="modal-body">
-    <!-- Project Details Go Here -->
-    <h2>Project Name</h2>
-    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-    <img class="img-fluid d-block mx-auto" src="img/portfolio/01-full.jpg" alt="">
-    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis
-        dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate,
-        maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-    <ul class="list-inline">
-        <li>Date: January 2017</li>
-        <li>Client: Threads</li>
-        <li>Category: Illustration</li>
-    </ul>
-    <button class="btn btn-primary" data-dismiss="modal" type="button">
-        <i class="fa fa-times"></i>
-        Close Project</button>
-    </div>
-            </div>
-*/
+function onFormSubmit(ev, el) {
+    ev.preventDefault();
+    var $elMail = $('#inputEmail').val();
+    var $elSubject = $('#inputSubject').val();
+    var $elBody = $('#inputTextarea').val();
+    var mailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=${$elMail}&su=${$elSubject}&body=${$elBody}`;
+
+    window.open(mailURL, '_blank');
+}
